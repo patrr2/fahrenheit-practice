@@ -1,10 +1,10 @@
 import { shuffleArray } from "./utils";
 
-export const farenheitToCelsius = (farenheit: number): number => {
-    return (farenheit - 32) * (5 / 9);
+export const fahrenheitToCelsius = (fahrenheit: number): number => {
+    return (fahrenheit - 32) * (5 / 9);
 }
 
-export const celsiusToFarenheit = (celsius: number): number => {
+export const celsiusToFahrenheit = (celsius: number): number => {
     return (celsius * (9 / 5)) + 32;
 }
 
@@ -24,7 +24,7 @@ export const importantCelsiusTemps = [
     220 // typical oven temperature
 ]
 
-export const importantFarenheitTemps = [
+export const importantFahrenheitTemps = [
     0,
     32,
     100
@@ -37,9 +37,9 @@ type question = {
 }
 
 export const easyFToCProblemSet = () : question[] => {
-    const fTemps1 = importantCelsiusTemps.map(x => Math.ceil(celsiusToFarenheit(x)))
-    const fTemps2 = importantCelsiusTemps.map(x => Math.floor(celsiusToFarenheit(x)))
-    const fTemps3 = importantFarenheitTemps
+    const fTemps1 = importantCelsiusTemps.map(x => Math.ceil(celsiusToFahrenheit(x)))
+    const fTemps2 = importantCelsiusTemps.map(x => Math.floor(celsiusToFahrenheit(x)))
+    const fTemps3 = importantFahrenheitTemps
 
     const fTemps4 = fTemps1.map(x => x + 2)
     const fTemps5 = fTemps2.map(x => x - 2)
@@ -50,9 +50,9 @@ export const easyFToCProblemSet = () : question[] => {
         return {
             question: `${x}°F`,
             verify: (input : string) => {
-                return Math.abs(farenheitToCelsius(x) - parseInt(input)) < 1
+                return Math.abs(fahrenheitToCelsius(x) - parseInt(input)) < 1
             },
-            humanReadableSolution: `${farenheitToCelsius(x).toFixed(2)}°C`
+            humanReadableSolution: `${fahrenheitToCelsius(x).toFixed(2)}°C`
         }
     })
 
