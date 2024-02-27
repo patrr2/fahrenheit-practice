@@ -47,7 +47,7 @@ function App() {
       setInput("")
       setTimeoutForNextQuestion(setTimeout(() => {
         return nextRound()
-      }, 1500))
+      }, 1600))
     }
   }
 
