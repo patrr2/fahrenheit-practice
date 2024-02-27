@@ -60,10 +60,14 @@ function App() {
           { timeoutForNextQuestion !== null ? currentQuestion.humanReadableSolution : currentQuestion.question}
       </h1>
 
-      <Timer start={timerExpiration[0]} expiration={timerExpiration[1]} onExpire={() => {
-        if (!isBetweenRounds) setStreak(0)
-      }} />
-      <input value={input} type="text" autoFocus={true} className="h-10" onKeyDown={handleEnter} onChange={(e) => setInput(e.currentTarget.value)}></input>
+      <div>
+        <Timer start={timerExpiration[0]} expiration={timerExpiration[1]} onExpire={() => {
+          if (!isBetweenRounds) setStreak(0)
+        }} />
+      </div>
+      <div>
+        <input value={input} type="text" autoFocus={true} className="h-10" onKeyDown={handleEnter} onChange={(e) => setInput(e.currentTarget.value)}></input>
+      </div>
     </>
   )
 }
