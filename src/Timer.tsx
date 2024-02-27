@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import {useEffect, useState} from 'react';
 
 export default (props : { start: number | null, expiration : number | null, onExpire ?: () => void }) => {
     const { expiration, onExpire, start } = props
