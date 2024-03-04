@@ -1,12 +1,14 @@
 import { useState } from 'react'
 import './App.css'
-import { easyFToCProblemSet } from './questions'
+import { easyFToCProblemSet, problemset1 } from './questions'
 import Timer from './Timer'
 import OverlappingAudio from './OverlappingAudio'
 
-const problemSet = easyFToCProblemSet()
+const problemSet = problemset1()
 
 const successAudio = OverlappingAudio('./public/success_bell-6776.mp3')
+
+console.log(problemSet, 'problemSet')
 
 function App() {
   const [count, setCount] = useState(0)
@@ -64,7 +66,7 @@ function App() {
         }} />
       </div>
       <div>
-        <input value={input} type="text" autoFocus={true} className="h-10" onKeyDown={handleEnter} onChange={(e) => setInput(e.currentTarget.value)}></input>
+        <input value={input} type="number" autoFocus={true} className="h-10" onKeyDown={handleEnter} onChange={(e) => setInput(e.currentTarget.value)}></input>
       </div>
     </>
   )

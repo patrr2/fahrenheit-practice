@@ -30,10 +30,40 @@ export const importantFahrenheitTemps = [
     100
 ]
 
+export const fahrenheitList = [
+    10,
+    20,
+    30,
+    40,
+    50,
+    60,
+    70,
+    80,
+    90,
+    100,
+    110
+]
+
 type question = {
     question: string,
     verify: (input : string) => boolean,
     humanReadableSolution: string
+}
+
+export const problemset1 = () : question[] => {
+    const fList1 = fahrenheitList.map(x => x + 2)
+    const fList2 = fahrenheitList.map(x => x - 2)
+    const fListSum = shuffleArray([...fList1, ...fList2, ...fahrenheitList])
+
+    return fListSum.map(x => {
+        return {
+            question: `${x}°F`,
+            verify: (input : string) => {
+                return Math.abs(fahrenheitToCelsius(x) - parseInt(input)) < 1
+            },
+            humanReadableSolution: `${fahrenheitToCelsius(x).toFixed(2)}°C`
+        }
+    })
 }
 
 export const easyFToCProblemSet = () : question[] => {
